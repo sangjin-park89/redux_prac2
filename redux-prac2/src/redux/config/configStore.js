@@ -1,11 +1,10 @@
-import { createStore } from "redux";
-import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+import counter from "../modules/counterSlice";
 
-import counter from "../modules/counter"
-
-const rootReducer = combineReducers({
-    counter: counter,
+const store = configureStore({
+    reducer: {
+        counter,
+    },
 });
-const store = createStore(rootReducer);
 
 export default store;

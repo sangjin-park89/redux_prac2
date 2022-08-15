@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
-import { minusOne, plusOne, addNumber, minNumber } from "./redux/modules/counter";
+import { addNumber, minusNumber } from "./redux/modules/counterSlice";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,30 +19,15 @@ function App() {
   } 
 
   const onClickMinNumberHandler = () => {
-    dispatch(minNumber(number))
+    dispatch(minusNumber(number))
   }
-  console.log(number)
 
   // const number = useSelector((state) => state.counter.number);
 
   return (
     <div>
-      <h1>{number}</h1>
       <h2>{globalNumber}</h2>
-      <button
-        onClick={() => {
-          dispatch(plusOne());
-        }}
-      >
-        + 1
-      </button>
-      <button
-        onClick={() => {
-          dispatch(minusOne());
-        }}
-      >
-        - 1
-      </button>
+
       <input type="number" onChange={onChangeHandler}></input>
       <button onClick={onClickAddNumberHandler}>더하기</button>
       <button onClick={onClickMinNumberHandler}>빼기</button>
